@@ -1,0 +1,20 @@
+Windows PowerShell
+(C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+Попробуйте новую кроссплатформенную оболочку PowerShell (https://aka.ms/pscore6)
+
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker pull node:15.14
+15.14: Pulling from library/node
+Digest: sha256:608bba799613b1ebf754034ae008849ba51e88b23271412427b76d60ae0d0627
+Status: Image is up to date for node:15.14
+docker.io/library/node:15.14
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker images
+REPOSITORY          TAG       IMAGE ID       CREATED         SIZE
+docker101tutorial   latest    cb6ed8281384   3 days ago      28.9MB
+alpine/git          latest    692618a0d74d   2 weeks ago     43.4MB
+node                15.14     3d3f41722daf   16 months ago   936MB
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker run -it --rm --env NAME=Алексей --env SURNAME=Манчинский -v C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1:/mydata  --name mynode node:15.14      
+Welcome to Node.js v15.14.0.
+Type ".help" for more information.
+>
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1>

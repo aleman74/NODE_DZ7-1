@@ -1,0 +1,78 @@
+Windows PowerShell
+(C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker pull busybox
+Using default tag: latest
+latest: Pulling from library/busybox
+Digest: sha256:ad9bd57a3a57cc95515c537b89aaa69d83a6df54c4050fcf2b41ad367bec0cd5
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker images
+REPOSITORY          TAG       IMAGE ID       CREATED       SIZE
+busybox             latest    2bd29714875d   3 days ago    1.24MB
+docker101tutorial   latest    cb6ed8281384   3 days ago    28.9MB
+alpine/git          latest    692618a0d74d   2 weeks ago   43.4MB
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker run -it --name pinger busybox ping netology.ru -c 7
+PING netology.ru (188.114.99.192): 56 data bytes
+64 bytes from 188.114.99.192: seq=0 ttl=37 time=16.686 ms
+64 bytes from 188.114.99.192: seq=1 ttl=37 time=17.607 ms
+64 bytes from 188.114.99.192: seq=3 ttl=37 time=16.817 ms
+64 bytes from 188.114.99.192: seq=4 ttl=37 time=16.865 ms
+64 bytes from 188.114.99.192: seq=5 ttl=37 time=19.702 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 16.176/17.230/19.702 ms
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker ps -a
+CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS                     PORTS     NAMES
+a9e341c7d978   busybox      "ping netology.ru -c…"   14 seconds ago   Exited (0) 7 seconds ago             pinger
+2e49b9204f83   alpine/git   "git clone https://g…"   3 days ago       Exited (0) 3 days ago                repo
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker logs pinger
+PING netology.ru (188.114.99.192): 56 data bytes
+64 bytes from 188.114.99.192: seq=0 ttl=37 time=16.686 ms
+64 bytes from 188.114.99.192: seq=1 ttl=37 time=17.607 ms
+64 bytes from 188.114.99.192: seq=3 ttl=37 time=16.817 ms
+64 bytes from 188.114.99.192: seq=5 ttl=37 time=19.702 ms
+64 bytes from 188.114.99.192: seq=6 ttl=37 time=16.176 ms
+
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 16.176/17.230/19.702 ms
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker start pinger
+pinger
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker ps -a
+CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS                              PORTS     NAMES
+a9e341c7d978   busybox      "ping netology.ru -c…"   41 seconds ago   Exited (0) Less than a second ago             pinger
+2e49b9204f83   alpine/git   "git clone https://g…"   3 days ago       Exited (0) 3 days ago                         repo
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker logs pinger
+PING netology.ru (188.114.99.192): 56 data bytes
+64 bytes from 188.114.99.192: seq=0 ttl=37 time=16.686 ms
+64 bytes from 188.114.99.192: seq=1 ttl=37 time=17.607 ms
+64 bytes from 188.114.99.192: seq=2 ttl=37 time=16.758 ms
+64 bytes from 188.114.99.192: seq=3 ttl=37 time=16.817 ms
+64 bytes from 188.114.99.192: seq=4 ttl=37 time=16.865 ms
+64 bytes from 188.114.99.192: seq=5 ttl=37 time=19.702 ms
+64 bytes from 188.114.99.192: seq=6 ttl=37 time=16.176 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 16.176/17.230/19.702 ms
+PING netology.ru (188.114.99.192): 56 data bytes
+64 bytes from 188.114.99.192: seq=0 ttl=37 time=16.605 ms
+64 bytes from 188.114.99.192: seq=1 ttl=37 time=17.039 ms
+64 bytes from 188.114.99.192: seq=3 ttl=37 time=16.120 ms
+64 bytes from 188.114.99.192: seq=4 ttl=37 time=16.517 ms
+64 bytes from 188.114.99.192: seq=5 ttl=37 time=16.706 ms
+64 bytes from 188.114.99.192: seq=6 ttl=37 time=16.582 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 16.120/16.851/18.394 ms
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker rm pinger
+pinger
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1> docker image rm busybox
+Untagged: busybox:latest
+Untagged: busybox@sha256:ad9bd57a3a57cc95515c537b89aaa69d83a6df54c4050fcf2b41ad367bec0cd5
+Deleted: sha256:2bd29714875d9206777f9e8876033cbcd58edd14f2c0f1203435296b3f31c5f7
+Deleted: sha256:3e9498aeb76f9f5834ba3c6c8c7932daeb15b66064eeea54c25e9f31074ecffe
+PS C:\WORK\Course\Нетология\Node_js\code\NODE_DZ7-1>                
